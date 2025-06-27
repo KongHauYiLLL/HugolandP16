@@ -54,7 +54,7 @@ function App() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin inline-block w-8 h-8 sm:w-12 sm:h-12 border-4 border-purple-400 border-t-transparent rounded-full mb-4"></div>
           <p className="text-white text-lg sm:text-xl font-semibold">Loading Hugoland...</p>
@@ -68,15 +68,15 @@ function App() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center p-4">
         <FloatingIcons />
-        <div className="text-center max-w-xs sm:max-w-md lg:max-w-lg mx-auto relative z-10">
+        <div className="text-center max-w-md mx-auto relative z-10">
           <div className="mb-6 sm:mb-8">
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">🏰 Welcome to Hugoland! 🗡️</h1>
-            <p className="text-purple-300 text-sm sm:text-base lg:text-lg mb-4 sm:mb-6">
+            <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4">🏰 Welcome to Hugoland! 🗡️</h1>
+            <p className="text-purple-300 text-base sm:text-lg mb-4 sm:mb-6">
               The ultimate fantasy adventure game where knowledge is your greatest weapon!
             </p>
-            <div className="bg-black/30 p-3 sm:p-4 lg:p-6 rounded-lg border border-purple-500/50 mb-4 sm:mb-6">
-              <h3 className="text-white font-bold mb-2 text-sm sm:text-base lg:text-lg">🎮 What awaits you:</h3>
-              <ul className="text-purple-200 text-xs sm:text-sm lg:text-base space-y-1 text-left">
+            <div className="bg-black/30 p-3 sm:p-4 rounded-lg border border-purple-500/50 mb-4 sm:mb-6">
+              <h3 className="text-white font-bold mb-2 text-sm sm:text-base">🎮 What awaits you:</h3>
+              <ul className="text-purple-200 text-xs sm:text-sm space-y-1">
                 <li>• Answer trivia questions to defeat enemies</li>
                 <li>• Collect powerful weapons and armor</li>
                 <li>• Mine gems and upgrade your equipment</li>
@@ -89,13 +89,13 @@ function App() {
           
           <button
             onClick={() => setShowWelcome(false)}
-            className="w-full sm:w-auto px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold rounded-lg hover:from-purple-500 hover:to-indigo-500 transition-all duration-200 flex items-center gap-3 justify-center text-sm sm:text-base lg:text-lg"
+            className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold rounded-lg hover:from-purple-500 hover:to-indigo-500 transition-all duration-200 flex items-center gap-3 justify-center text-base sm:text-lg"
           >
-            <Play className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
+            <Play className="w-5 h-5 sm:w-6 sm:h-6" />
             Start Your Adventure
           </button>
           
-          <p className="text-gray-400 text-xs sm:text-sm lg:text-base mt-4">
+          <p className="text-gray-400 text-xs sm:text-sm mt-4">
             Begin your journey in the magical world of Hugoland
           </p>
         </div>
@@ -145,13 +145,13 @@ function App() {
             
             {/* Power Skills Display */}
             {gameState.powerSkills.length > 0 && (
-              <div className="bg-gradient-to-r from-indigo-900 to-purple-900 p-3 sm:p-4 lg:p-6 rounded-lg border border-indigo-500/50">
-                <h3 className="text-white font-bold mb-3 text-sm sm:text-base lg:text-lg flex items-center gap-2">
+              <div className="bg-gradient-to-r from-indigo-900 to-purple-900 p-3 sm:p-4 rounded-lg border border-indigo-500/50">
+                <h3 className="text-white font-bold mb-3 text-sm sm:text-lg flex items-center gap-2">
                   ⚡ Active Power Skills
                 </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {gameState.powerSkills.map((skill) => (
-                    <div key={skill.id} className="bg-black/30 p-2 sm:p-3 rounded border border-purple-500/30">
+                    <div key={skill.id} className="bg-black/30 p-2 rounded border border-purple-500/30">
                       <div className="flex items-center gap-2 mb-1">
                         <span className={`text-xs font-bold ${
                           skill.rarity === 'mythical' ? 'text-red-400' :
@@ -162,7 +162,7 @@ function App() {
                           {skill.rarity.toUpperCase()}
                         </span>
                       </div>
-                      <p className="text-white font-semibold text-xs sm:text-sm">{skill.name}</p>
+                      <p className="text-white font-semibold text-xs">{skill.name}</p>
                       <p className="text-gray-300 text-xs">{skill.description}</p>
                     </div>
                   ))}
@@ -172,16 +172,16 @@ function App() {
             
             {/* Knowledge Streak Display */}
             {gameState.knowledgeStreak.current > 0 && (
-              <div className="bg-gradient-to-r from-yellow-900 to-orange-900 p-3 sm:p-4 lg:p-6 rounded-lg border border-yellow-500/50">
+              <div className="bg-gradient-to-r from-yellow-900 to-orange-900 p-3 sm:p-4 rounded-lg border border-yellow-500/50">
                 <div className="text-center">
                   <div className="flex items-center justify-center gap-2 mb-2">
-                    <span className="text-xl sm:text-2xl lg:text-3xl">🔥</span>
-                    <h3 className="text-yellow-400 font-bold text-sm sm:text-base lg:text-lg">Knowledge Streak!</h3>
+                    <span className="text-xl sm:text-2xl">🔥</span>
+                    <h3 className="text-yellow-400 font-bold text-sm sm:text-lg">Knowledge Streak!</h3>
                   </div>
-                  <p className="text-white text-xs sm:text-sm lg:text-base">
+                  <p className="text-white text-xs sm:text-sm">
                     {gameState.knowledgeStreak.current} correct answers in a row
                   </p>
-                  <p className="text-yellow-300 text-xs sm:text-sm lg:text-base">
+                  <p className="text-yellow-300 text-xs sm:text-sm">
                     +{Math.round((gameState.knowledgeStreak.multiplier - 1) * 100)}% reward bonus
                   </p>
                 </div>
@@ -192,29 +192,29 @@ function App() {
               <button
                 onClick={startCombat}
                 disabled={gameState.playerStats.hp <= 0}
-                className={`w-full sm:w-auto px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-lg font-bold text-white transition-all duration-200 transform flex items-center gap-3 justify-center text-sm sm:text-base lg:text-lg ${
+                className={`w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-white transition-all duration-200 transform flex items-center gap-3 justify-center text-sm sm:text-base ${
                   gameState.playerStats.hp > 0
                     ? 'bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 hover:scale-105 shadow-lg hover:shadow-green-500/25'
                     : 'bg-gray-600 cursor-not-allowed'
                 }`}
               >
-                <Play className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
+                <Play className="w-4 h-4 sm:w-5 sm:h-5" />
                 {gameState.playerStats.hp <= 0 ? 'You are defeated!' : 'Start Adventure'}
               </button>
               
               {gameState.playerStats.hp <= 0 && (
-                <p className="text-red-400 mt-2 text-xs sm:text-sm lg:text-base">
+                <p className="text-red-400 mt-2 text-xs sm:text-sm">
                   Visit the shop to get better equipment and try again!
                 </p>
               )}
               
               {gameState.isPremium && (
-                <div className="bg-gradient-to-r from-yellow-600 to-yellow-500 p-3 sm:p-4 lg:p-6 rounded-lg">
+                <div className="bg-gradient-to-r from-yellow-600 to-yellow-500 p-3 rounded-lg">
                   <div className="flex items-center justify-center gap-2">
-                    <Crown className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white" />
-                    <span className="text-white font-bold text-xs sm:text-sm lg:text-base">🎉 PREMIUM MEMBER UNLOCKED! 🎉</span>
+                    <Crown className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+                    <span className="text-white font-bold text-xs sm:text-sm">🎉 PREMIUM MEMBER UNLOCKED! 🎉</span>
                   </div>
-                  <p className="text-yellow-100 text-xs sm:text-sm mt-1">
+                  <p className="text-yellow-100 text-xs mt-1">
                     You've reached Zone 50! Enjoy exclusive rewards and special features!
                   </p>
                 </div>
@@ -223,17 +223,17 @@ function App() {
               <div className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-3">
                 <button
                   onClick={() => setCurrentModal('gameMode')}
-                  className="px-3 sm:px-4 lg:px-6 py-2 sm:py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-500 hover:to-purple-400 transition-all duration-200 flex items-center gap-2 justify-center text-xs sm:text-sm lg:text-base"
+                  className="px-3 sm:px-4 py-2 rounded-lg font-semibold text-white bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-500 hover:to-purple-400 transition-all duration-200 flex items-center gap-2 justify-center text-xs sm:text-sm"
                 >
-                  <Settings className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5" />
+                  <Settings className="w-3 h-3 sm:w-4 sm:h-4" />
                   Game Mode
                 </button>
                 
                 <button
                   onClick={handleResetGame}
-                  className="px-3 sm:px-4 lg:px-6 py-2 sm:py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 transition-all duration-200 flex items-center gap-2 justify-center text-xs sm:text-sm lg:text-base"
+                  className="px-3 sm:px-4 py-2 rounded-lg font-semibold text-white bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 transition-all duration-200 flex items-center gap-2 justify-center text-xs sm:text-sm"
                 >
-                  <RotateCcw className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5" />
+                  <RotateCcw className="w-3 h-3 sm:w-4 sm:h-4" />
                   Reset Game
                 </button>
               </div>
@@ -345,17 +345,17 @@ function App() {
       case 'resetConfirm':
         return (
           <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
-            <div className="bg-gradient-to-br from-red-900 to-gray-900 p-4 sm:p-6 lg:p-8 rounded-lg border border-red-500/50 max-w-xs sm:max-w-md lg:max-w-lg w-full">
+            <div className="bg-gradient-to-br from-red-900 to-gray-900 p-6 rounded-lg border border-red-500/50 max-w-md w-full">
               <div className="text-center">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <RotateCcw className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-white" />
+                <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <RotateCcw className="w-8 h-8 text-white" />
                 </div>
-                <h2 className="text-white font-bold text-lg sm:text-xl lg:text-2xl mb-4">Reset Game?</h2>
-                <p className="text-gray-300 text-sm sm:text-base lg:text-lg mb-6">
+                <h2 className="text-white font-bold text-xl mb-4">Reset Game?</h2>
+                <p className="text-gray-300 text-sm mb-6">
                   Are you sure you want to reset your game? This will permanently delete all your progress, including:
                 </p>
-                <div className="bg-black/30 p-3 sm:p-4 lg:p-6 rounded-lg mb-6 text-left">
-                  <ul className="text-red-300 text-sm sm:text-base lg:text-lg space-y-1">
+                <div className="bg-black/30 p-3 rounded-lg mb-6 text-left">
+                  <ul className="text-red-300 text-sm space-y-1">
                     <li>• All coins and gems</li>
                     <li>• All weapons and armor</li>
                     <li>• Zone progress and achievements</li>
@@ -363,19 +363,19 @@ function App() {
                     <li>• Collection book progress</li>
                   </ul>
                 </div>
-                <p className="text-red-400 font-bold text-sm sm:text-base lg:text-lg mb-6">
+                <p className="text-red-400 font-bold text-sm mb-6">
                   This action cannot be undone!
                 </p>
-                <div className="flex flex-col sm:flex-row gap-3">
+                <div className="flex gap-3">
                   <button
                     onClick={() => setCurrentModal(null)}
-                    className="flex-1 py-2 sm:py-3 lg:py-4 bg-gray-600 text-white rounded-lg hover:bg-gray-500 transition-colors text-sm sm:text-base lg:text-lg"
+                    className="flex-1 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-500 transition-colors"
                   >
                     Cancel
                   </button>
                   <button
                     onClick={confirmReset}
-                    className="flex-1 py-2 sm:py-3 lg:py-4 bg-red-600 text-white rounded-lg hover:bg-red-500 transition-colors font-bold text-sm sm:text-base lg:text-lg"
+                    className="flex-1 py-2 bg-red-600 text-white rounded-lg hover:bg-red-500 transition-colors font-bold"
                   >
                     Reset Game
                   </button>
@@ -412,25 +412,25 @@ function App() {
 
       {/* Header */}
       <div className="bg-gradient-to-r from-purple-800 via-violet-800 to-purple-800 shadow-2xl relative z-10">
-        <div className="container mx-auto px-3 sm:px-4 lg:px-6 py-3 sm:py-4 lg:py-6">
-          <div className="flex items-center justify-between mb-3 sm:mb-4 lg:mb-6">
+        <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-6">
+          <div className="flex items-center justify-between mb-3 sm:mb-6">
             <div className="flex items-center gap-2">
-              <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white">
+              <h1 className="text-xl sm:text-2xl lg:text-4xl font-bold text-white">
                 🏰 Hugoland 🗡️
               </h1>
               {gameState.isPremium && (
-                <Crown className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8 text-yellow-400 animate-pulse" />
+                <Crown className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 text-yellow-400 animate-pulse" />
               )}
             </div>
           </div>
           
           {/* Quick Stats Bar */}
-          <div className="flex justify-center items-center gap-2 sm:gap-3 lg:gap-4 mb-3 sm:mb-4 text-xs sm:text-sm lg:text-base">
+          <div className="flex justify-center items-center gap-2 sm:gap-4 mb-3 sm:mb-4 text-xs sm:text-sm">
             <button
               onClick={() => setCurrentModal('achievements')}
               className="flex items-center gap-1 text-yellow-300 hover:text-yellow-200 transition-colors"
             >
-              <Trophy className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5" />
+              <Trophy className="w-3 h-3 sm:w-4 sm:h-4" />
               <span>{unlockedAchievements}/{gameState.achievements.length}</span>
             </button>
             
@@ -438,7 +438,7 @@ function App() {
               onClick={() => setCurrentModal('collection')}
               className="flex items-center gap-1 text-indigo-300 hover:text-indigo-200 transition-colors"
             >
-              <Book className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5" />
+              <Book className="w-3 h-3 sm:w-4 sm:h-4" />
               <span>{gameState.collectionBook.totalWeaponsFound + gameState.collectionBook.totalArmorFound}</span>
             </button>
             
@@ -446,13 +446,13 @@ function App() {
               onClick={() => setCurrentModal('statistics')}
               className="flex items-center gap-1 text-blue-300 hover:text-blue-200 transition-colors"
             >
-              <BarChart3 className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5" />
+              <BarChart3 className="w-3 h-3 sm:w-4 sm:h-4" />
               <span>{Math.round((gameState.statistics.correctAnswers / Math.max(gameState.statistics.totalQuestionsAnswered, 1)) * 100)}%</span>
             </button>
           </div>
           
           {/* Navigation */}
-          <nav className="flex justify-center space-x-1 sm:space-x-2 lg:space-x-3 overflow-x-auto pb-2">
+          <nav className="flex justify-center space-x-1 sm:space-x-2 overflow-x-auto pb-2">
             {[
               { id: 'stats', label: 'Hero', icon: User },
               { id: 'research', label: 'Research', icon: Brain },
@@ -465,7 +465,7 @@ function App() {
                 key={id}
                 onClick={() => setCurrentView(id as GameView)}
                 disabled={gameState.inCombat}
-                className={`px-2 sm:px-3 lg:px-4 xl:px-6 py-2 sm:py-3 rounded-lg font-semibold transition-all duration-200 flex items-center gap-1 sm:gap-2 text-xs sm:text-sm lg:text-base whitespace-nowrap ${
+                className={`px-2 sm:px-4 py-2 rounded-lg font-semibold transition-all duration-200 flex items-center gap-1 sm:gap-2 text-xs sm:text-sm whitespace-nowrap ${
                   currentView === id
                     ? 'bg-white text-purple-800 shadow-lg'
                     : gameState.inCombat
@@ -473,8 +473,8 @@ function App() {
                     : 'bg-purple-700 text-white hover:bg-purple-600 hover:scale-105'
                 }`}
               >
-                <Icon className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5" />
-                <span className="hidden xs:inline sm:inline">{label}</span>
+                <Icon className="w-3 h-3 sm:w-4 sm:h-4" />
+                <span className="hidden xs:inline">{label}</span>
               </button>
             ))}
           </nav>
@@ -482,14 +482,14 @@ function App() {
       </div>
 
       {/* Main Content */}
-      <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 py-4 sm:py-6 lg:py-8 relative z-10">
-        <div className="max-w-7xl mx-auto">
+      <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-8 relative z-10">
+        <div className="max-w-4xl mx-auto">
           {renderCurrentView()}
         </div>
       </div>
 
       {/* Footer */}
-      <div className="text-center py-3 sm:py-4 lg:py-6 text-gray-400 text-xs sm:text-sm lg:text-base px-4 relative z-10">
+      <div className="text-center py-3 sm:py-4 text-gray-400 text-xs sm:text-sm px-4 relative z-10">
         Welcome to{' '}
         <button
           onClick={(e) => {
